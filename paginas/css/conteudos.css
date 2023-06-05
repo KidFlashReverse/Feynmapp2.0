@@ -1,0 +1,33 @@
+.tela_add{
+    border-style: solid;
+    background-image: linear-gradient(to left,rgb(190, 190, 190), rgb(206, 206, 206),rgb(255, 255, 255));
+    border-width: 4px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.titul{
+    border-color: rgb(66, 111, 196);
+    border-width: 2px;
+    border-style: solid;
+    background-image: linear-gradient(to left, rgb(19, 49, 97),rgb(20, 82, 163),rgb(54, 120, 207));
+    font-size:30px;
+    color: white;
+}
+.anot_foto{
+    border-color: rgb(66, 111, 196);
+    border-width: 2px;
+    border-style: solid;
+    background-image: linear-gradient(to left, rgb(19, 49, 97),rgb(20, 82, 163),rgb(54, 120, 207));
+    font-size:30px;
+    color: white;
+}
+
+.adic{
+    border-color: rgb(66, 111, 196);
+    border-width: 2px;
+    border-style: solid;
+    background-image: linear-gradient(to left, rgb(19, 49, 97),rgb(20, 82, 163),rgb(54, 120, 207));
+    font-size:30px;
+    color: white;
+}

@@ -1,0 +1,30 @@
+/* codigos do body */
+body{
+    background-color: rgb(185, 185, 185);
+    background-size: 250%;
+    background-position: 40%;
+    padding: 0;
+    margin: 0;
+	min-width: 100ww;
+	min-height: 100wh;
+}
+
+.img2{
+	margin-left: 400px;
+}
+
+.menul1{
+	background-color: white;
+	height: 400px;
+	width: 500px;
+	border-radius: 30px;
+	margin-left: 33%;
+	margin-top: 10%;
+	position: fixed;
+	}
+
+.locais1{
+margin-top: 110px;
+margin-left: 300px;
+}
+
