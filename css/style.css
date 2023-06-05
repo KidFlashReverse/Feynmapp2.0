@@ -136,9 +136,6 @@ nav ul ul ul {
 	padding: 0%;
 	margin: 0%;
 	font-family: Arial, Helvetica, sans-serif;
-}
-
-p{
 	color: rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255);
 	font-size: 30px;
@@ -148,4 +145,11 @@ p{
 	padding-bottom: 2%;
 	border-right: 2%;
 	border-width: 0%;
+}
+
+.videos{
+	text-align: center;
+	padding: 10%;
+	list-style: none;
+	cursor: pointer;
 }
