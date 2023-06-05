@@ -50,7 +50,7 @@ nav {
 }
 /* codigos da barra de menu da pesquisa */
 nav ul {
-	background:  #5f6975; 
+	background:  #292929; 
 	background: linear-gradient(top,  #444444 0%,  #5f6975 100%);  
 	background: -moz-linear-gradient(top,  #5f6975 0%,  #5f6975 100%); 
 	background: -webkit-linear-gradient(top,  #5f6975 0%, 100%); 

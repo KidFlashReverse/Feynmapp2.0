@@ -25,7 +25,6 @@ if(isset($_SESSION['logado']) == false){
                 <ul> 
                     <li class="nada">
                     <ul class="barra">
-                        <li style="float:left"><img src="imgs/Voy tech semfundo.png" height="300px" width="300px"></li>
                     </ul>                
                     <nav>
                         <ul class="menu">
@@ -99,14 +98,8 @@ if(isset($_SESSION['logado']) == false){
             </nav>
         </form>
     </section>
-   
-
-    <div style="width: 250px; height:400px; background: rgb(147, 236, 147)"></div>
-    <div class="Qverde" style="width: 250px; height:400px; background: rgb(147, 236, 147)"></div>
-    <div class="Qverde2" style="width: 250px; height:400px; background: rgb(147, 236, 147)"></div>
 
     <footer>
-     Estude, estude, estude. Mas lembre as virgulas significão pausas.
     </footer>
 </body>
 </html>
