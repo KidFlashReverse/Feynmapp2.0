@@ -1,4 +1,8 @@
 /* codigos do body */
+*{
+	padding: 0;
+	margin: 0;
+}
 body{
     background-image: linear-gradient(to right, rgb(255, 255, 255) , rgb(89, 154, 238), rgb(19, 70, 117), rgb(50, 85, 161));
     background-size: 250%;
@@ -33,6 +37,35 @@ footer {
     line-height: 100px;
 }
 
+header{
+	height: 80px;
+	width: 100%;
+	background-color: #292929;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	margin-bottom: 80px;
+	z-index: 2;
+}
+article{
+	position: relative;
+	top: 80px;
+	z-index: 1;
+}
+.titul{
+	left: 30px;
+	top: 15px;
+	font-size: 1.5em;
+	font-family: Arial, Helvetica, sans-serif;
+    color: white;
+	border-width: 0px;
+	border-style: solid;
+	border-color: #3b3b3b;
+	position: relative;
+	z-index: 2;
+	width: 100px;
+}
+
 /* posicao da barra de navegacao */
 nav {
     margin: 0 auto;
@@ -41,16 +74,51 @@ nav {
     left: 34%;
 }
 /* permissao para aparecer as colunas */
-.menu li ul{
+.dentro{
+	display: none;
+	transition: 0.5s all;
+}
+.dentro2{
     display: none;
+	transition: 0.5s all;
+}
+.dentro3{
+    display: none;
+	transition: 0.5s all;
 }
 /* funcao para aparecer as submaterias no estilo de lista em queda */
-.menu li:hover ul{
+.menu li:hover .dentro{
     display: block;
+	animation: opa 0.5s;
+}
+.dentro li:hover .dentro2{
+	display: block;
+	animation: opa 0.5s;
+}
+.dentro2 li:hover .dentro3{
+	display: block;
+	animation: opa 0.5s;
+}
+
+@keyframes opa{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes sair{
+	0%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
 }
 /* codigos da barra de menu da pesquisa */
-nav ul {
-	background:  #292929; 
+.menu{
+	background:  #202020; 
 	background: linear-gradient(top,  #444444 0%,  #5f6975 100%);  
 	background: -moz-linear-gradient(top,  #5f6975 0%,  #5f6975 100%); 
 	background: -webkit-linear-gradient(top,  #5f6975 0%, 100%); 
@@ -59,77 +127,113 @@ nav ul {
 	border-radius: 10px;  
 	list-style: none;
 	position: fixed;
-	top: 0px;
+	top: 15px;
 	display: block;
+	margin-right: 5%;
 	z-index: 2;
 	float: left;
+	width: auto;
+	justify-content: center;
+	align-items: center;
 }
 /* codigo da posicao vertical da barra de pesquisa */
-nav ul li {
-		float: left;
+.menu li {
+	float: left;
 }
 /* codigo do estilo da fonte do menu de pesquisa */
-nav ul li a {
+.menu li a {
 	display: block; padding: 15px 20px;
 	color: #FFF; text-decoration: none;        
 }
 /* codigo do tamanho da barra de apresentacao dos subniveis da barra de pesquisa */
-nav ul ul {
-	background: #5f6975; border-radius: 0px; padding: 0;
-	position: absolute; top: 100%;
+.dentro {
+	background: #3a3a3a; border-radius: 0px; padding: 0;
+	position: absolute; top: 100%; left: 53%; width: 45%;
+}
+.dentro ul{
+	background: #3a3a3a; 
+	border-radius: 0px; 
+	padding: 0;
+	position: absolute; 
+	top: 0%;
 }
 /* codigo da posiçao das letras do menu da barra de pesquisa */
-nav ul ul li {
+.dentro li {
 	float: none; 
-	border-top: 1px solid #6b727c;
-	border-bottom: 1px solid #575f6a; position: relative;
+	border-top: 1px solid #3a3a3a;
+	border-bottom: 1px solid #3a3a3a; position: relative;
+    color: #fff;
+    display: block;        
+}
+.dentro2 li {
+	float: none; 
+	border-top: 1px solid #3a3a3a;
+	border-bottom: 1px solid #3a3a3a; position: relative;
     color: #fff;
     display: block;        
 }
 /* codigo do detalhe de sombra nos subniveis da barra de pesquisa */
-nav ul ul li a:hover {
+.dentro li a:hover {
 	background: #4b545f;
-    border-top: 1px solid #6b727c;
-    border-bottom: 1px solid #575f6a; position: relative;
+    border-top: 1px solid #3a3a3a;
+    border-bottom: 1px solid #3a3a3a; position: relative;
+    color: #fff;
+}
+.dentro2 li a:hover {
+	background: #4b545f;
+    border-top: 1px solid #3a3a3a;
+    border-bottom: 1px solid #3a3a3a; position: relative;
     color: #fff;
 }
 
-nav ul ul ul {
+.dentro2 {
+	position: absolute; left: 100%; top:0;
+}
+.dentro3 {
 	position: absolute; left: 100%; top:0;
 }
 
 .login{
-	position: fixed;
-	left: 80%;
-	top: 0%;
+	position: relative;
+	left: 85%;
+	display: flex;
+	top: -20px;
+	flex-wrap: wrap;
+	flex-direction: row;
 }
 
 .login button{
+	position: relative;
+	top: 0;
+	left: 0;
 	margin-bottom: 5px;
-	width: 200px;
+	width: 80px;
+	height: 40px;
+	margin-left: 10px;
 	border-radius: 7px 7px 7px 7px;
 	box-shadow: 1px 1px 1px 1px #3b3b3b;
 	cursor: pointer;
 	background-color: #3b3b3b; /* Green */
 	border: none;
 	color: white;
-	padding: 15px 32px;
+	text-align: center;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 0.6em;
+	transition: 0.5s all;
+}
+.login button:hover{
+	font-size: 0.75em;
+	color: #292929;
+	background-color: white;
+	width: 70px;
+	height: 35px;
+	left: 5px;
+	top: 2.5px;
 }
 
-.titul{
-	text-align: center;
-	font-size: 100px;
-	font-family: Arial, Helvetica, sans-serif;
-    color: white;
-	border-width: 0px;
-	border-style: solid;
-	border-color: #3b3b3b;
-	background-color: #3b3b3b;
-}
+
 
 .text{
 	text-align: left;

@@ -1,24 +1,21 @@
 body{
-    background-color: rgb(245, 152, 135);
+    background-color: black;
+    color: white;
 }
 
 .titul{
-    border-color: rgb(241, 98, 98);
     border-width: 2px;
     border-style: solid;
-    background-image: linear-gradient(to left, rgb(226, 143, 110),rgb(204, 99, 81),rgb(180, 81, 64));
     font-size:30px;
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    
+    color: #FF4D00;
 }
 
 .volte{
-    border-color: rgb(236, 85, 85);
     border-width: 0px;
     border-style: solid;
-    background-image: linear-gradient(to left, rgb(255, 188, 188),rgb(255, 120, 96),rgb(219, 92, 70));
     color: white;
     position: relative;
     text-decoration: none;
@@ -27,34 +24,49 @@ body{
 
    
 .field{
-    background-color: white;
     border-style: solid;
-    border-color: white ;
-    border-width: 0px;
+    border-color: white;
+    background-color: #ff4d00a6;
+    border-width: 1px;
     font-family: Arial, Helvetica, sans-serif;
+}
+.field ul{
+    position: relative;
+    right: 3%;
 }
 
 .field ul li{
     list-style: none;
+    color: white;
     margin-top: 10px;
     margin-bottom: 10px;
     height: 20px;
     width: 100%;
-    background-color: white;
     transition: 1s all;
     padding: 7px;
     padding-bottom: 7px;
     font-size: 1.5em;
 }
-.field ul li:hover{
-    background-color: rgb(0, 0, 0);
-    box-shadow: 10px 10px rgb(252, 252, 252);
-}
 
 .field ul li a{
     text-decoration: none;
-    color: black;
-}
-.field ul li:hover a{
     color: white;
+    transition: 0.5s all;
+}
+.field ul li a:hover{
+    color: rgb(0, 0, 0);
+}
+.add{
+    position: fixed;
+    left: 90%;
+    top: 90%;
+}
+.add button{
+    background-color: rgb(251, 255, 0);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px 20px 20px 20px;
+    border: 0px;
+    color: #ff4800;
+    font-size: 1.4em;
 }

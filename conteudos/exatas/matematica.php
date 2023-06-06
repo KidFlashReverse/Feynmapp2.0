@@ -32,13 +32,16 @@ $_SESSION['mat'] = 'mt';
             <div class="volte">
             <a href="../../index.php">voltar</a>
             </div>
+            <br>
             <div class="titul">
             <h1>Matemática</h1>
             </div>
             <div class="tmat">
         </header>
-            Conteudos
-</div>
+        <h1>Anotações</h1>
+            <div class="add">
+                <a href="../../paginas/add.php?mt"><button>+</button></a>
+            </div>
             <?php
                 if($total > 0){
                     do{
@@ -70,10 +73,6 @@ $_SESSION['mat'] = 'mt';
             ?>
         <article>
         </article>
-            <div class="add">
-                <a href="../../paginas/add.php?mt">+</a>
-            </div>
-            </div>
         <aside>  
         </aside>
     </section>
