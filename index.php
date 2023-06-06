@@ -110,14 +110,15 @@ if(isset($_SESSION['logado']) == false){
 
             <div class="videos">
                 <video width="390" height="240" controls>
-                <source src="" type="video/mp4">
-            </video>
-            <video width="390" height="240" controls>
-                <source src="" type="video/mp4">
-            </video>
-            <video width="390" height="240" controls>
-                <source src="" type="video/mp4">
-            </video>
+                    <source src="" type="video/mp4">
+                </video>
+                <video width="390" height="240" controls>
+                    <source src="" type="video/mp4">
+                </video>
+                <video width="390" height="240" controls>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
             </article>
             <aside>
 
