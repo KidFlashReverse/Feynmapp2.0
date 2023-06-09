@@ -17,6 +17,7 @@ if(isset($_SESSION['logado']) == false){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <title>Feynmapp</title>
 </head>
 <body>
@@ -105,20 +106,44 @@ if(isset($_SESSION['logado']) == false){
             </header>
             <article>
             <div class="text">
-                    O site Feynmapp foi desenvolvido com âmbito de auxiliar alunos em relacao ao enem
+                    O site Feynmapp foi desenvolvido com âmbito de auxiliar alunos em relacao ao ENEM
                 </div>
 
             <div class="videos">
-                <video width="390" height="240" controls>
-                    <source src="" type="video/mp4">
-                </video>
-                <video width="390" height="240" controls>
-                    <source src="" type="video/mp4">
-                </video>
-                <video width="390" height="240" controls>
-                    <source src="" type="video/mp4">
-                </video>
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators" style="position: relative; top: 420px;">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <video width="70%" height="50%" controls>
+                                <source src="" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="carousel-item">
+                            <video width="70%" height="50%" controls>
+                                <source src="" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="carousel-item">
+                            <video width="70%" height="50%" controls>
+                                <source src="" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    </div>
             </div>
+            
             </article>
             <aside>
 
@@ -127,6 +152,7 @@ if(isset($_SESSION['logado']) == false){
 
             </nav>
         </form>
+        
     </section>
 
     
@@ -137,5 +163,7 @@ if(isset($_SESSION['logado']) == false){
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 </body>
 </html>

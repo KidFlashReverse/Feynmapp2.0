@@ -8,6 +8,9 @@
     <title>Login</title>
 </head>
 <body>
+    <div class="volte">
+        <a href="../index.php"><img src="../imgs/voltar.png" class="media-object  img-responsive img-thumbnail" width="20px"></a>
+    </div>
     <div class="menul">
         <div class="locais">
             <form action="conexoes/db_login.php" method="post">
