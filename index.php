@@ -35,7 +35,7 @@ if(isset($_SESSION['logado']) == false){
                                 if($logado == 0){
                                 }else{
                                     echo "
-                                        <li href='paginas/conta.php'><a>CONTA</a></li>
+                                        <li><a href='paginas/conta.php'>CONTA</a></li>
                                     ";
                                 }
                             ?>

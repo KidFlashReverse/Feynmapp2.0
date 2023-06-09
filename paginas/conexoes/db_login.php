@@ -25,9 +25,12 @@ if (mysqli_num_rows($email_sql) > 0){
             $_SESSION['telefone'] = $row['Telefone'];
         }
         
-        echo "logado";
-        mysqli_close($conexao);
-        echo "<a href='../../index.php'>Voltar</a>";
+        mysqli_close($conexao);echo "
+        <script>
+            alert ('Logado');
+            window.location = '../../index.php';
+        </script>
+    ";
     }else{
         echo "Senha incorreta";
     }

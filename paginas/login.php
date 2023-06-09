@@ -8,15 +8,15 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="conexoes/db_login.php" method="post">
-        <div class="menul">
+    <div class="menul">
         <div class="locais">
-        <input type="email" name="email" id="email" placeholder="E-mail"><p>
-        <input type="password" name="senha" id="senha" placeholder="Senha"><p>
-        <input type="submit" value="Logar">
+            <form action="conexoes/db_login.php" method="post">
+                <h1>Login</h1>
+                <input type="email" name="email" id="email" placeholder="E-mail"><p>
+                <input type="password" name="senha" id="senha" placeholder="Senha"><p>
+                <button type="submit">Login</button>
+            </form>
         </div>
-        </div>
-        </div>
-    </form>
+    </div>
 </body>
 </html>

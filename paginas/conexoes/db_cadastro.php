@@ -5,6 +5,7 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $telefone = $_POST['telefone'];
+$materia = $_POST['materia'];
 
 $par = array("(", ")");
 $tell = str_replace($par, "", $telefone);
@@ -21,7 +22,7 @@ if(mysqli_num_rows($conn) > 0){
     die();
 }
 
-$sql = "INSERT INTO login values (null, '$nome', '$email', '$senha', '$tell', 0)";
+$sql = "INSERT INTO login values (null, '$nome', '$email', '$senha', '$tell', '$materia', 0)";
 
 mysqli_query($conexao, $sql);
 mysqli_close($conexao);
