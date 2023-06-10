@@ -8,7 +8,10 @@ if(isset($_SESSION['logado']) == false){
     $logado = 0;
     session_abort();
 }
-
+for($i = 0; $i < 7; $i++){
+    $_SESSION['h'.$i] = null;
+    $_SESSION['m'.$i] = null;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

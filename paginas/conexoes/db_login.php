@@ -25,17 +25,26 @@ if (mysqli_num_rows($email_sql) > 0){
             $_SESSION['telefone'] = $row['Telefone'];
         }
         
-        mysqli_close($conexao);echo "
+        mysqli_close($conexao);
+        echo "
         <script>
             alert ('Logado');
             window.location = '../../index.php';
         </script>
-    ";
+        ";
     }else{
-        echo "Senha incorreta";
+        echo "
+        <script>
+            alert ('Senha incorreta');
+            window.location = '../login.php';
+        </script>";
     }
 }else{
-    echo "Email Não Cadastrado";
+    echo "
+    <script>
+        alert ('Email incorreto');
+        window.location = '../login.php';
+    </script>";
 }
 
 
