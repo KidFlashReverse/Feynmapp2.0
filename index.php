@@ -12,6 +12,35 @@ for($i = 0; $i < 7; $i++){
     $_SESSION['h'.$i] = null;
     $_SESSION['m'.$i] = null;
 }
+
+$row = 0;
+
+if($logado == 1){
+    $sql = "SELECT * from horario WHERE Id_usuario = ".$_SESSION['Id']."";
+    $query = mysqli_query($conexao, $sql);
+    $row = mysqli_num_rows($query);
+    $list = mysqli_fetch_assoc($query);
+}
+if($row > 0){
+    $separar = explode(",", $list['Horario']);
+    $separar_mat = explode(",", $list['Materia']);
+    $remover = array("S: ", "T: ", "Qa: ", "Qi: ", "Sex: ", "Sab: ", "D: ");
+    for($i = 0; $i < 7; $i ++){
+        $hor[$i] = str_replace($remover, "", $separar[$i]);
+        $mat[$i] = str_replace($remover, "", $separar_mat[$i]);
+    }
+    $data = date('Y-m-d');
+    
+    $dia_semana = date('w', strtotime($data));
+    
+    $hoje = $dia_semana - 1;
+    if($dia_semana == -1){
+        $dia_semana = 6;
+    }
+    
+    $hor_hoje = explode(";", $hor[$dia_semana]);
+    $mat_hoje = explode(";", $mat[$dia_semana]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,59 +61,66 @@ for($i = 0; $i < 7; $i++){
                 <ul> 
                     <li class="nada">
                     <ul class="barra">
-                    </ul>                
-                    <nav>
-                        <ul class="menu">
-                            <?php
-                                if($logado == 0){
-                                }else{
-                                    echo "
-                                        <li><a href='paginas/conta.php'>CONTA</a></li>
-                                    ";
-                                }
-                            ?>
-                            <li><a href="paginas/horario.php">HORÁRIO</a></li>
-                            <li><a href="paginas/revisao.php">REVISÃO</a></li>
-                            <li><a href="#">MINHAS ANOTAÇÕES</a>   
-                                <ul class="dentro" id="dentro">
-                                    <li><a href="#">LINGUAGEM</a>
-                                        <ul class="dentro2">
-                                            <li><a href="conteudos/linguagem/portugues.php">PORTUGUÊS</a></li>
-                                            <li><a href="conteudos/linguagem/redacao.php">REDAÇÃO</a></li>
-                                            <li><a href="conteudos/linguagem/artes.php">ARTES</a></li>
-                                            <li><a href="conteudos/linguagem/edfisica.php">ED.FISICA</a></li>
-                                            <li><a href="#">LINGUA ESTRANGEIRA</a>
-                                                <ul class="dentro3">
-                                                    <li><a href="conteudos/linguagem/espanhol.php">ESPANHOL</a></li>
-                                                    <li><a href="linguagens/ingles.html">INGLES</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">HUMANAS</a>
-                                        <ul class="dentro2">
-                                            <li><a href="materias/humanas/historia.html">HISTORIA</a></li>
-                                            <li><a href="materias/humanas/geografia.html">GEOGRAFIA</a></li>
-                                            <li><a href="materias/humanas/filosofia.html">FILOSOFIA</a></li>
-                                            <li><a href="materias/humanas/sociologia.html">SOCIOLOGIA</a></li>  
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">NATUREZA</a>
-                                        <ul class="dentro2">
-                                            <li><a href="materias/natureza/biologia.html">BIOLOGIA</a></li>
-                                            <li><a href="materias/natureza/quimica.html">QUIMICA</a></li>
-                                            <li><a href="materias/natureza/fisica.html">FISICA</a></li>   
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">EXATAS</a>
-                                        <ul class="dentro2">
-                                            <li><a href="conteudos/exatas/matematica.php">MATEMATICA</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
+                    </ul>   
+                    <?php
+                        if($logado == 0){
+                        }else{
+                    ?>             
+                        <nav>
+                            <ul class="menu">
+                                <?php
+                                    if($logado == 0){
+                                    }else{
+                                        echo "
+                                            <li><a href='paginas/conta.php'>CONTA</a></li>
+                                        ";
+                                    }
+                                ?>
+                                <li><a href="paginas/horario.php">HORÁRIO</a></li>
+                                <li><a href="paginas/revisao.php">REVISÃO</a></li>
+                                <li><a href="#">MINHAS ANOTAÇÕES</a>   
+                                    <ul class="dentro" id="dentro">
+                                        <li><a href="#">LINGUAGEM</a>
+                                            <ul class="dentro2">
+                                                <li><a href="conteudos/linguagem/portugues.php">PORTUGUÊS</a></li>
+                                                <li><a href="conteudos/linguagem/redacao.php">REDAÇÃO</a></li>
+                                                <li><a href="conteudos/linguagem/artes.php">ARTES</a></li>
+                                                <li><a href="conteudos/linguagem/edfisica.php">ED.FISICA</a></li>
+                                                <li><a href="#">LINGUA ESTRANGEIRA</a>
+                                                    <ul class="dentro3">
+                                                        <li><a href="conteudos/linguagem/espanhol.php">ESPANHOL</a></li>
+                                                        <li><a href="conteudos/linguagem/ingles.php">INGLES</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">HUMANAS</a>
+                                            <ul class="dentro2">
+                                                <li><a href="conteudos/humanas/historia.php">HISTORIA</a></li>
+                                                <li><a href="conteudos/humanas/geografia.php">GEOGRAFIA</a></li>
+                                                <li><a href="conteudos/humanas/filosofia.php">FILOSOFIA</a></li>
+                                                <li><a href="conteudos/humanas/sociologia.php">SOCIOLOGIA</a></li>  
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">NATUREZA</a>
+                                            <ul class="dentro2">
+                                                <li><a href="conteudos/natureza/biologia.php">BIOLOGIA</a></li>
+                                                <li><a href="conteudos/natureza/quimica.php">QUIMICA</a></li>
+                                                <li><a href="conteudos/natureza/fisica.php">FISICA</a></li>   
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">EXATAS</a>
+                                            <ul class="dentro2">
+                                                <li><a href="conteudos/exatas/matematica.php">MATEMATICA</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    <?php
+                        }
+                    ?>
                 </ul>
                 <div class="login">
                     <?php
@@ -108,47 +144,85 @@ for($i = 0; $i < 7; $i++){
                 </div>
             </header>
             <article>
-            <div class="text">
+                <div class="text">
                     O site Feynmapp foi desenvolvido com âmbito de auxiliar alunos em relacao ao ENEM
                 </div>
+                <?php
+                    if($logado == 1){
+                ?>
+                    <div class="horario">
+                        <h1>Horário</h1>
+                        <hr>
+                        <br>
+                        <?php if($row > 0){
+                        ?>
+                                <h4>O que você estudará hoje:</h4>
+                        <?php
+                            }else{
+                                echo "<h4>Defina seu Horário</h4>";
+                            }
+                        ?>
+                        <?php if($row > 0){
+                        ?>
+                        <div class="t">
+                            <table class="table table-bordered">
+                                <?php
+                                    for($i = 0; $i < count($hor_hoje); $i++){
+                                ?>
+                                    <tr>
+                                        <td style="font-weight: bolder;"><?php echo $hor_hoje[$i];?></td>
+                                        <td><?php echo $mat_hoje[$i];?></td>
+                                    </tr>
+                                <?php
+                                    }
+                                ?>
+                            </table>
+                        </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                <?php
+                    }
+                ?>
+                
 
-            <div class="videos">
-                <h1>Videos Recomendados</h1>
-                <hr>
-                <div id="carouselExampleIndicators" class="carousel slide">
-                    <div class="carousel-indicators" style="position: relative; top: 420px;">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <video width="70%" height="50%" controls>
-                                <source src="" type="video/mp4">
-                            </video>
+                <div class="videos" <?php if($row == 0){ echo 'style="margin-top: 20vh;"';}?>>
+                    <h1>Videos Recomendados</h1>
+                    <hr>
+                    <div id="carouselExampleIndicators" class="carousel slide">
+                        <div class="carousel-indicators" style="position: relative; top: 420px;">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
-                        <div class="carousel-item">
-                            <video width="70%" height="50%" controls>
-                                <source src="" type="video/mp4">
-                            </video>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <video width="70%" height="50%" controls>
+                                    <source src="" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="carousel-item">
+                                <video width="70%" height="50%" controls>
+                                    <source src="" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="carousel-item">
+                                <video width="70%" height="50%" controls>
+                                    <source src="" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <video width="70%" height="50%" controls>
-                                <source src="" type="video/mp4">
-                            </video>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                         </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                    </div>
-            </div>
-            
+                </div>
             </article>
             <aside>
 

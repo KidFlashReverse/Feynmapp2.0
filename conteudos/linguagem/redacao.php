@@ -28,11 +28,17 @@ $_SESSION['mat'] = 'red';
 <body>
     <section>
         <header>
-            <a href="../../index.php">voltar</a>
-            <h1>Redação</h1>
+            <div class="volte">
+                <a href="../../index.php"><img src="../../imgs/voltar.png" class="media-object  img-responsive img-thumbnail" width="   20px"></a>
+            </div>
+            <div class="titul">
+                <h1>Redação</h1>
+            </div>
         </header>
-            Conteudos
-            
+            <h1>Anotações</h1>
+            <div class="add">
+                <a href="../../paginas/add.php?red"><button>+</button></a>
+            </div>
             <?php
                 if($total > 0){
                     do{
@@ -42,7 +48,7 @@ $_SESSION['mat'] = 'red';
                         $total1 = mysqli_num_rows($conn1);
 
             ?>
-            <fieldset>
+            <fieldset class="field">
                 <legend><?php echo $dados['Divisao'];?></legend>
                     <ul class="conteudos">
                         <?php
@@ -64,9 +70,6 @@ $_SESSION['mat'] = 'red';
             ?>
         <article>
         </article>
-            <div class="add">
-                <a href="../../paginas/add.php?red">+</a>
-            </div>
         <aside>  
         </aside>
     </section>

@@ -11,6 +11,7 @@ body{
     margin: 0;
 	min-width: 100ww;
 	min-height: 100wh;
+	overflow-x: hidden;
 }
 /* codigos do footer("barra azul de baixo") */
 body footer{ 
@@ -242,33 +243,69 @@ nav {
 	font-family: Arial, Helvetica, sans-serif;
 	color: rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255);
-	font-size: 1.2em;
+	font-size: 2.5vw;
 	font-family: Arial, Helvetica, sans-serif;
 	padding-top: 0.5%;
 	padding-bottom: 0.5%;
 }
-
-.videos{
+.horario{
+	position: relative;
+	margin-top: 10%;
+}
+.videos, .horario{
 	text-align: center;
-	padding: 10%;
+	padding: 3%;
 	list-style: none;
 	position: relative;
 	bottom: 20vh;
 }
-.videos h1{
+.videos h1, .horario h1{
 	position: absolute;
 	font-size: 1.5em;
-	top: 24%;
+	margin-top: 3%;
 	width: 100vw;
 	text-align: left;
-	left: 0;
+	left: 18vw;
 	padding-left: 10px;
 }
-.videos hr{
+.videos hr, .horario hr{
 	position: relative;
-	top: 9vh;
-	left: 0;
+	top: 2vh;
+	left: 15%;
+	width: 70%;
 	margin-bottom: 30px;
 	border: 3px solid #000000;
 	background-color: #000000;
+}
+.t{
+	width: 40vw;
+	position: relative;
+	left: 25vw;
+}
+.table{
+	font-size: 1.5em;
+	position: relative;
+	margin-top: 5vh;
+	width: 40vw;
+}
+.table tr{
+	background-color: transparent;
+}
+.table tbody{
+	background-color: transparent;
+}
+.btn_h{
+    position: relative;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 20px;
+    border: 0;
+    background-color: black;
+    color: white;
+    transition: 0.5s filter, border;
+}
+.btn_h:hover{
+    filter: invert(100%);
+    border: 1px solid rgb(255, 255, 255);
+    margin: 9px;
 }

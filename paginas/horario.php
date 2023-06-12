@@ -2,6 +2,15 @@
 include_once "conexoes/db_connect.php";
 session_start();
 
+if(isset($_SESSION['logado']) == false){
+    echo "
+        <script>
+            alert ('Você deve estar logado');
+            window.location = '../index.php';
+        </script>
+    ";
+}
+
 $sql = "SELECT * from horario WHERE Id_usuario = ".$_SESSION['Id']."";
 $query = mysqli_query($conexao, $sql);
 $row = mysqli_num_rows($query);
@@ -44,7 +53,6 @@ if($row > 0){
         </div>
         <h1>Organizar Horário</h1>
         <div class="botoes">
-            <button>Gerar Horário por Ciclo</button>
             <button onclick="dica()">Como Registrar Horário</button>
         </div>
         <br>

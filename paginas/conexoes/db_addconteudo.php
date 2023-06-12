@@ -10,13 +10,14 @@ $foto = $_FILES['foto']['tmp_name'];
 $tamanho = $_FILES['foto']['size'];
 $texto = $_POST['texto'];
 $link = $_POST['links'];
+$data = date('Y/m/d');
 
 $fp = fopen($foto, "rb");
 $conteudo = fread($fp, $tamanho);
 $conteudo = addslashes($conteudo);
 fclose($fp);
 
-$sql = "INSERT INTO ".$_SESSION["Save_materia"]."_conteudo values(null, '$id_usu', '$titulo', '$topicos', '$conteudo', '$texto', '$link')";
+$sql = "INSERT INTO ".$_SESSION["Save_materia"]."_conteudo values(null, '$id_usu', '$titulo', '$topicos', '$conteudo', '$texto', '$link', '$data')";
 $query = mysqli_query($conexao, $sql);
 
 echo "

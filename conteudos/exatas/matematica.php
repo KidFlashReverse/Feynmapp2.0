@@ -32,9 +32,6 @@ $_SESSION['mat'] = 'mt';
             <div class="volte">
                 <a href="../../index.php"><img src="../../imgs/voltar.png" class="media-object  img-responsive img-thumbnail" width="   20px"></a>
             </div>
-            <!-- <div class="volte">
-            <a href="../../index.php">voltar</a>
-            </div> -->
             <br>
             <div class="titul">
                 <h1>Matemática</h1>

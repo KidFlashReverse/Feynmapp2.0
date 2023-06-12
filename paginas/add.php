@@ -61,6 +61,80 @@ if($url == "pt"){
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
+}else if($url == "ing"){
+    $materia = "Inglês";
+    $_SESSION['pagina'] = "linguagem";
+    $_SESSION['materia'] = "ingles";
+
+    $divisao = "SELECT * from ing_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $conn = mysqli_query($conexao, $divisao); 
+    $dados = mysqli_fetch_assoc($conn);
+    $total = mysqli_num_rows($conn);
+}else if($url == "soc"){
+    $materia = "Sociologia";
+    $_SESSION['pagina'] = "humanas";
+    $_SESSION['materia'] = "sociologia";
+
+    $divisao = "SELECT * from soc_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $conn = mysqli_query($conexao, $divisao); 
+    $dados = mysqli_fetch_assoc($conn);
+    $total = mysqli_num_rows($conn);
+}
+else if($url == "fil"){
+    $materia = "Filosofia";
+    $_SESSION['pagina'] = "humanas";
+    $_SESSION['materia'] = "filosofia";
+
+    $divisao = "SELECT * from fil_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $conn = mysqli_query($conexao, $divisao); 
+    $dados = mysqli_fetch_assoc($conn);
+    $total = mysqli_num_rows($conn);
+}
+else if($url == "his"){
+    $materia = "História";
+    $_SESSION['pagina'] = "humanas";
+    $_SESSION['materia'] = "historia";
+
+    $divisao = "SELECT * from his_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $conn = mysqli_query($conexao, $divisao); 
+    $dados = mysqli_fetch_assoc($conn);
+    $total = mysqli_num_rows($conn);
+}else if($url == "geo"){
+    $materia = "Geografia";
+    $_SESSION['pagina'] = "humanas";
+    $_SESSION['materia'] = "geografia";
+
+    $divisao = "SELECT * from geo_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $conn = mysqli_query($conexao, $divisao); 
+    $dados = mysqli_fetch_assoc($conn);
+    $total = mysqli_num_rows($conn);
+}else if($url == "bio"){
+    $materia = "Biologia";
+    $_SESSION['pagina'] = "natureza";
+    $_SESSION['materia'] = "biologia";
+
+    $divisao = "SELECT * from bio_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $conn = mysqli_query($conexao, $divisao); 
+    $dados = mysqli_fetch_assoc($conn);
+    $total = mysqli_num_rows($conn);
+}else if($url == "qui"){
+    $materia = "Química";
+    $_SESSION['pagina'] = "natureza";
+    $_SESSION['materia'] = "quimica";
+
+    $divisao = "SELECT * from qui_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $conn = mysqli_query($conexao, $divisao); 
+    $dados = mysqli_fetch_assoc($conn);
+    $total = mysqli_num_rows($conn);
+}else if($url == "fis"){
+    $materia = "Física";
+    $_SESSION['pagina'] = "natureza";
+    $_SESSION['materia'] = "fisica";
+
+    $divisao = "SELECT * from fis_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $conn = mysqli_query($conexao, $divisao); 
+    $dados = mysqli_fetch_assoc($conn);
+    $total = mysqli_num_rows($conn);
 }
 
 ?>
@@ -76,44 +150,50 @@ if($url == "pt"){
 </head>
 <body>
     <section>
+        <div class="volte">
+            <a href="../conteudos/<?php echo $_SESSION['pagina']."/".$_SESSION['materia'].".php"?>"><img src="../imgs/voltar.png" class="media-object  img-responsive img-thumbnail" width="   20px"></a>
+        </div>
         <header>
             <div class="titul-mate"><h1><?php echo $materia;?></h1></div>
         </header>
-        <div class="adci">
         <article>
-            <div class="cont">
-            <form action="conexoes/db_addcont.php?<?php echo $url?>" method="post" name="tabela">
-                <input type="text" name="conteudo" id="cont" placeholder="Conteúdo" required>
-            </div>
-                <select name="tipo" id="tipo" required>
-                    <?php
-                        if($total > 0){
-                            do{
-                                echo $dados['Id'];
-                    ?>
-                            <option value="<?php echo $dados['Id'];?>"><?php echo $dados['Divisao'];?></option>
-                    <?php
-                            }while($dados = mysqli_fetch_assoc($conn));
-                        }
-                    ?>
-                </select>
-                <input type="button" value="Adicionar Nova Divisão" onclick="novadiv()" id="botao">
-                <br>
-                <input type="submit" value="Adicionar">
-            </form>
-            <div  style="display: none;" id="novadiv">
-                <form method="post" action="conexoes/db_adddivisao.php">
-                    <input type="text" name="novadiv" placeholder="Adicionar Nova Divisao" required>
-                    <input type="submit" name="button1" value="Adicionar Divisao">
-                </form>
-            </div>
+            <div class="adci">
+                <div class="form">
+                    <div class="cont">
+                    <form action="conexoes/db_addcont.php?<?php echo $url?>" method="post" name="tabela">
+                        <input type="text" name="conteudo" id="cont" placeholder="Conteúdo" required>
                     </div>
+                        <select name="tipo" id="tipo" required>
+                            <?php
+                                if($total > 0){
+                                    do{
+                                        echo $dados['Id'];
+                            ?>
+                                    <option value="<?php echo $dados['Id'];?>"><?php echo $dados['Divisao'];?></option>
+                            <?php
+                                    }while($dados = mysqli_fetch_assoc($conn));
+                                }
+                            ?>
+                        </select>
+                        <br>
+                        <button type="button" onclick="novadiv()" id="botao">Adicionar Nova Divisão</button>
+                        <br>
+                        <button type="submit" id="adicionar">Adicionar</button>
+                    </form>
+                    <div  style="display: none;" id="novadiv">
+                    <hr>
+                        <form method="post" action="conexoes/db_adddivisao.php">
+                            <input type="text" name="novadiv" placeholder="Adicionar Nova Divisao" required>
+                            <button type="submit" name="button1">Adicionar Divisao</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </article>
 
         <aside>  
         </aside>
     </section>
-
     <script src="../js/js_add_conteudo.js"></script>
 </body>
 </html>
