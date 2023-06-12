@@ -38,7 +38,9 @@ $_SESSION['mat'] = 'mt';
             </div>
             <div class="tmat">
         </header>
+        <div class="anot1">
         <h1>Anotações</h1>
+        </div>
             <div class="add">
                 <a href="../../paginas/add.php?mt"><button>+</button></a>
             </div>
