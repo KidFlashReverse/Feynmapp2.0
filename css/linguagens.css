@@ -1,6 +1,19 @@
 body{
-  background-color: #eead2d;
+  background-color: rgb(92, 49, 158);
   color: white;
+}
+
+.anot{
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+color: #ffffff;
+      text-shadow: 
+               -1px -1px 0px #000000, 
+               -1px 1px 0px #000000,                    
+                1px -1px 0px #000000,                  
+                1px 0px 0px #000000;
+font-size:35px ;
+
 }
 
 .titul{
@@ -40,7 +53,7 @@ body{
 .field{
   border-style: solid;
   border-color: white;
-  background-color: #ff8c00;
+  background-color: rgb(83, 56, 110);
   border-width: 1px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -60,6 +73,7 @@ body{
   padding: 7px;
   padding-bottom: 7px;
   font-size: 1.5em;
+  text-align: center;
 }
 
 .field ul li a{
