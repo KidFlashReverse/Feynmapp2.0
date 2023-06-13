@@ -35,7 +35,9 @@ $_SESSION['mat'] = 'art';
                 <h1>Artes</h1>
             </div>
         </header>
+        <div class="anot">
             <h1>Anotações</h1>
+        </div>
             <div class="add">
                 <a href="../../paginas/add.php?art"><button>+</button></a>
             </div>

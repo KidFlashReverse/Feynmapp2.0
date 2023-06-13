@@ -35,7 +35,9 @@ $_SESSION['mat'] = 'es';
                 <h1>Espanhol</h1>
             </div>
         </header>
+        <div class="anot">
             <h1>Anotações</h1>
+        </div>
             <div class="add">
                 <a href="../../paginas/add.php?es"><button>+</button></a>
             </div>
