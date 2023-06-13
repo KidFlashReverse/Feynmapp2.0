@@ -1,64 +1,15 @@
-.tela_add{
-    border-style: solid;
-    background-image: linear-gradient(to left,rgb(190, 190, 190), rgb(206, 206, 206),rgb(255, 255, 255));
-    border-width: 4px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.volte{
-    border-width: 0px;
-    border-style: solid;
-    color: white;
-    position: relative;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 0%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-.titul{
-    border-color: rgb(66, 111, 196);
-    border-width: 2px;
-    border-style: solid;
-    background-image: linear-gradient(to left, rgb(19, 49, 97),rgb(20, 82, 163),rgb(54, 120, 207));
-    font-size:30px;
-    color: white;
+*{
+    padding: 0;
+    margin: 0;
 }
-.anot_foto{
-    border-color: rgb(66, 111, 196);
-    border-width: 2px;
-    border-style: solid;
-    background-image: linear-gradient(to left, rgb(19, 49, 97),rgb(20, 82, 163),rgb(54, 120, 207));
-    font-size:30px;
-    color: white;
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
 }
-
-.anot_foto p{
-    position: relative;
-    top: 7vh;
-}
-
-.adic{
-    border-color: rgb(66, 111, 196);
-    border-width: 2px;
-    border-style: solid;
-    background-image: linear-gradient(to left, rgb(19, 49, 97),rgb(20, 82, 163),rgb(54, 120, 207));
-    font-size:30px;
-    color: white;
-}
-
-.add2{
-    position: absolute;
-    top: 70vh;
-    right: 47vw;
-    width: 50px;
-    height: 50px;
-}
-
-.anot_text{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 button{
     position: relative;
     margin: 10px;
@@ -81,3 +32,170 @@ button:hover{
     font-size: 0.9em;
     font-weight: bolder;
 }
+.volte{
+    border-width: 0px;
+    border-style: solid;
+    color: white;
+    position: relative;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 0%;
+    margin: 5px;
+}
+.espaco{
+    position: relative;
+    height: 1vh;
+    margin-top: 2%;
+    background-color: white;
+}
+
+/*Primeira Tela*/
+    
+.tela_1{
+    display: flex;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    width: 46vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 15px black, -3px -3px 15px black;
+    position: relative;
+    left: 26%;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10%;
+}
+.tela_1 .sa{
+    position: relative;
+    text-align: center;
+}
+.tela_1 .titulo{
+    position: relative;
+    left: 10vw;
+    margin-bottom: 5%;
+    top: 0;
+    text-align: center;
+    width: 25vw;
+    margin-top: 4%;
+    font-size: 1.5em;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+.tela_1 .topicos_box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10%;
+    border-top: 2px black solid;
+    margin-top: 10px;
+}
+.tela_1 .top{
+    position: relative;
+    margin-right: 10%;
+    margin-top: 3%;
+    width: auto;
+    background-color: black;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 0.8em;
+    border-radius: 30px;
+}
+.tela_1 img{
+    width: 80%;
+}
+.tela_1 .foto{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.tela_1 .anot_text .text{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 40vw;
+    left: 3vw;
+    padding: 15px;
+    background-color: rgb(255, 174, 0);
+    border-radius: 20px;
+}
+.tela_1 .text p{
+    position: relative;
+    font-size: 1.2em;
+    text-indent: 5%;
+}
+.tela_1 .links_box{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    text-align:left;
+    font-size: 0.9em;
+}
+
+
+
+
+
+/*Segunda Tela*/
+.tela_add{
+    border-style: solid;
+    background-image: linear-gradient(to left,rgb(190, 190, 190), rgb(206, 206, 206),rgb(255, 255, 255));
+    border-width: 4px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 50vw;
+    position: relative;
+    left: 25vw;
+}
+
+.tela_add .titul{
+    border-color: rgb(66, 111, 196);
+    border-width: 2px;
+    border-style: solid;
+    background-image: linear-gradient(to left, rgb(19, 49, 97),rgb(20, 82, 163),rgb(54, 120, 207));
+    font-size:30px;
+    color: white;
+}
+.tela_add .anot_foto{
+    border-color: rgb(66, 111, 196);
+    border-width: 2px;
+    border-style: solid;
+    height: 10%;
+    background-image: linear-gradient(to left, rgb(19, 49, 97),rgb(20, 82, 163),rgb(54, 120, 207));
+    font-size:30px;
+    color: white;
+}
+
+.tela_add .anot_foto p{
+    position: relative;
+    top: 4vh;
+    font-size: 0.8em;
+}
+
+.tela_add .adic{
+    border-color: rgb(66, 111, 196);
+    border-width: 2px;
+    border-style: solid;
+    background-image: linear-gradient(to left, rgb(19, 49, 97),rgb(20, 82, 163),rgb(54, 120, 207));
+    font-size:30px;
+    color: white;
+}
+
+.tela_add .add2{
+    position: relative;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.tela_add .anot_text{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+

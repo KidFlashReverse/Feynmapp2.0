@@ -17,6 +17,11 @@ $query_materia2 = mysqli_query($conexao, $sql2);
 $row2 = mysqli_fetch_assoc($query_materia2);
 $total = mysqli_num_rows($query_materia2);
 
+if($total > 0){
+    $topicos = explode(";", $row2['Topicos']);
+    $links = explode(";", $row2['Link']);
+}
+
 if($total == 0){
     $row2['Topicos'] = null;
     $row2["Anot_foto"] = null;
@@ -109,29 +114,56 @@ else if($url == "his"){
                 <a href="<?php echo $_SESSION['pagina']."/".$_SESSION['materia'].".php"?>"><img src="../imgs/voltar.png" class="media-object  img-responsive img-thumbnail" width="   20px"></a>
             </div>
             <div class="tela_1" id="tela_1">
-                <div class="titulo">
-                    <h1><?php echo $row['Conteudo']?></h1>
-                </div>
                 <?php
                 if($total == 0){
-                    echo "<h1>Sem Anotação</h1>";
+                    echo "<h1 class='sa'>Sem Anotação</h1>";
                 }else{
                 ?>
                     <div class="corpo">
+                        <div class="titulo">
+                            <h1><?php echo $row['Conteudo']?></h1>
+                        </div>
                         <div class="topicos">
-                            <p><?php echo $row2['Topicos']?></p>    
+                            <h1>Tópicos</h1>
+                            <div class="topicos_box">
+                                <?php
+                                    for($i = 0; $i < count($topicos); $i++){
+                                ?>
+                                        <span class="top"><?php echo $topicos[$i];?></span>
+                                <?php
+                                    }
+                                ?>
+                            </div>
                         </div>
                         <div class="anot_foto">
-                            <?php 
-                                $byte = $row2["Anot_foto"];
-                                echo '<img src="data:image/jpg;base64,' . base64_encode($byte) . '" />';
-                            ?>
+                            <h1>Foto da Anotação</h1>
+                            <br>
+                            <div class="foto">
+                                <?php 
+                                    $byte = $row2["Anot_foto"];
+                                    echo '<img src="data:image/jpg;base64,' . base64_encode($byte) . '" />';
+                                ?>
+                            </div>
                         </div>
                         <div class="anot_text">
-                            <p><?php echo $row2['Anot_texto']?></p>
+                            <br>
+                            <h1>Anotação em Texto</h1>
+                            <div class="text">
+                                <p><?php echo $row2['Anot_texto']?></p>
+                            </div>
                         </div>
                         <div class="links">
-                            <p><?php echo $row2['Link']?></p>
+                            <h1>Links</h1>
+                            <div class="links_box">
+                                <?php
+                                    for($i = 0; $i < count($links); $i++){
+                                ?>
+                                        <a href="<?php echo $links[$i];?>"><?php echo $links[$i];?></a>
+                                        <br>
+                                <?php
+                                    }
+                                ?>
+                            </div>
                         </div>
                     </div>
                 <?php
@@ -139,17 +171,15 @@ else if($url == "his"){
                 ?>
             </div>
             <div class="tela_add" id="tela_add" style="display: none;">
-            <div class="titul">
-                <h5>Registrar Anotação</h5>
-                <div class="titulo">
+                <div class="titul">
+                    <h5>Registrar Anotação</h5>
                     <h1><?php echo $row['Conteudo']?></h1>
                 </div>
-            </div>
                 <form action="../paginas/conexoes/db_addconteudo.php" method="post" enctype="multipart/form-data">
                     <div class="topicos">
                         <h1>Topicos</h1>
                         <p>Separe os tópicos com um ponto e vírgula (;)</p>
-                        <textarea name="topicos" id="topicos" cols="30" rows="10" placeholder="Adicionar Tópicos"></textarea>
+                        <textarea name="topicos" id="topicos" cols="30" rows="10" placeholder="Adicionar Tópicos"><?php if($total > 0){echo $row2['Topicos'];}?></textarea>
                     </div>
                     <div class="anot_foto">
                         <label for="arquivo"><img src="../imgs/adicionar-botao.png" alt="" class="add2"></label>
@@ -160,14 +190,15 @@ else if($url == "his"){
                     <div class="anot_text">
                         <h1>Salvar Anotação Em Texto e Links</h1>
                         <p>Separe os links com ponto e vírgula (;)</p>
-                        <textarea name="texto" id="texto" cols="30" rows="10" placeholder="Anotar Resumo"></textarea>
-                        <textarea name="links" id="links" cols="30" rows="10" placeholder="Salvar Links"></textarea>
+                        <textarea name="texto" id="texto" cols="30" rows="10" placeholder="Anotar Resumo"><?php if($total > 0){echo $row2['Anot_texto'];}?></textarea>
+                        <textarea name="links" id="links" cols="30" rows="10" placeholder="Salvar Links"><?php if($total > 0){echo $row2['Link'];}?></textarea>
                     </div>
                     <div class="adic">
-                    <button type="submit" class="btn">Registrar</button>
+                        <button type="submit" class="btn">Registrar</button>
                     </div>
                 </form>
             </div>
+            <div class="espaco"></div>
         </article>
         <aside>
             <div class="add">

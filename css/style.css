@@ -149,7 +149,7 @@ nav {
 /* codigo do tamanho da barra de apresentacao dos subniveis da barra de pesquisa */
 .dentro {
 	background: #3a3a3a; border-radius: 0px; padding: 0;
-	position: absolute; top: 100%; left: 53%; width: 45%;
+	position: absolute; top: 100%; left: 55%; width: 45%;
 }
 .dentro ul{
 	background: #3a3a3a; 
