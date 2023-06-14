@@ -136,6 +136,10 @@ button:hover{
     margin-bottom: 5%;
     text-align:left;
     font-size: 0.9em;
+    word-break: break-all;
+}
+.tela_1 .links_box a{
+    width: 50vw;
 }
 
 

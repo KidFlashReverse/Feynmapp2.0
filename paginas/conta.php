@@ -60,7 +60,7 @@ function button2(){
     <body> 
         <div class="volte">
             <a href="../index.php"><img src="../imgs/voltar.png" class="media-object  img-responsive img-thumbnail" width="20px"></a>
-        </div>
+        </div>  
         <div class="menul1">
             <div class="locais1">
                 <form action="#" method="post">

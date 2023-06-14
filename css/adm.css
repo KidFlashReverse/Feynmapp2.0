@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+.volte{
+    border-width: 0px;
+    border-style: solid;
+    color: white;
+    position: relative;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 0%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-left: 2px;
+	margin-top: 2px;
+    filter: invert(0%);
+    transition: 0.5s all;
+}
+.volte:hover{
+    filter: invert(100%);
+}
+form{
+    position: relative;
+    width: 100%;
+}
+form textarea{
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+    border: 0;
+}
+fieldset{
+    height: auto;
+    position: relative;
+    top: 5%;
+}
+form{
+    height: auto;
+}
+table{
+    height: auto;
+}
+tbody{
+    height: 100%;
+}
+table tr{
+    align-items: center;
+    height: 100%;
+}
+.dia{
+    font-size: 1.2em;
+    align-items: center;
+    position: relative;
+}
+.centralizar{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+#article{
+    transition: 0.5s all;
+}
+.tela_dica{
+    position: fixed;
+    left: 29%;
+    top: 20%;
+    z-index: 3;
+    width: 600px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px black, -4px -4px 10px black;
+    background-color: rgb(216, 216, 216);
+    animation: subir 1s;
+}
+.tela_dica img{
+    width: 100%;
+}
+.tela_dica h1{
+    font-size: 1.5em;
+    text-align: center;
+}
+.tela_dica p{
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.tela_dica button{
+    position: absolute;
+    color: red;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.2em;
+    font-weight: bolder;
+    cursor: pointer;
+    left: 95%;
+    top: 0;
+}
+@keyframes subir {
+    0%{
+        margin-top: 10px;
+        opacity: 0;
+    }
+    100%{
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+article{
+    text-align: center;
+}
+button{
+    cursor: pointer;
+}
+.botoes button{
+    position: relative;
+    margin: 10px;
+    padding: 12px;
+    border-radius: 20px;
+    border: 0;
+    background-color: black;
+    color: white;
+    transition: 0.5s filter, border;
+    top: 40vh;
+    cursor: pointer;
+}
+.botoes button:hover{
+    filter: invert(100%);
+    border: 1px solid rgb(255, 255, 255);
+    margin: 9px;
+}
+
+.btn_add{
+    position: relative;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 20px;
+    border: 0;
+    background-color: black;
+    color: white;
+    transition: 0.5s filter, border;
+}
+.btn_add:hover{
+    filter: invert(100%);
+    border: 1px solid rgb(255, 255, 255);
+    margin: 9px;
+}
+.btn_cancelar button{
+    position: relative;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 20px;
+    border: 0;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s filter, border;
+}
+.btn_cancelar button:hover{
+    filter: invert(100%);
+    border: 1px solid rgb(255, 255, 255);
+    margin: 9px;
+}
+.btn_cancelar{
+    position: fixed;
+    top: 90vh;
+    font-size: 0.9em;
+    font-weight: bolder;
+    display: none;
+}
+input{
+    padding: 5px;
+}
+
+/*Tela_video*/
+
+.tela_video{
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 70vh;
+}
+.tela_video .corpo{
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+}
+.tela_video .corpo h1{
+    margin-bottom: 30px;
+}
+
+.tela_video .links_banco{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 2px black solid;
+    margin-top: 10px;
+    width: 50vw;
+}
+.tela_video .links_banco button{
+    position: relative;
+    margin-right: 5%;
+    margin-top: 2%;
+    width: auto;
+    background-color: black;
+    border: 0;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 0.8em;
+    border-radius: 30px;
+    transform: all 0.5s;
+}
+.tela_video .links_banco button a{
+    color: white;
+    text-decoration: none;
+}
+.tela_video .links_banco button:hover{
+    filter: invert(100%);
+    border: 1px solid rgb(255, 255, 255);
+}

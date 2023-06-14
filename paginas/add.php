@@ -12,7 +12,7 @@ if($url == "pt"){
     $_SESSION['pagina'] = "linguagem";
     $_SESSION['materia'] = "portugues";
 
-    $divisao = "SELECT * from pt_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from pt_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -21,7 +21,7 @@ if($url == "pt"){
     $_SESSION['pagina'] = "exatas";
     $_SESSION['materia'] = "matematica";
 
-    $divisao = "SELECT * from mt_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from mt_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -30,7 +30,7 @@ if($url == "pt"){
     $_SESSION['pagina'] = "linguagem";
     $_SESSION['materia'] = "artes";
 
-    $divisao = "SELECT * from art_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from art_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -39,7 +39,7 @@ if($url == "pt"){
     $_SESSION['pagina'] = "linguagem";
     $_SESSION['materia'] = "edfisica";
 
-    $divisao = "SELECT * from edf_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from edf_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -48,7 +48,7 @@ if($url == "pt"){
     $_SESSION['pagina'] = "linguagem";
     $_SESSION['materia'] = "espanhol";
 
-    $divisao = "SELECT * from es_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from es_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -57,7 +57,7 @@ if($url == "pt"){
     $_SESSION['pagina'] = "linguagem";
     $_SESSION['materia'] = "redacao";
 
-    $divisao = "SELECT * from red_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from red_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -66,7 +66,7 @@ if($url == "pt"){
     $_SESSION['pagina'] = "linguagem";
     $_SESSION['materia'] = "ingles";
 
-    $divisao = "SELECT * from ing_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from ing_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -75,7 +75,7 @@ if($url == "pt"){
     $_SESSION['pagina'] = "humanas";
     $_SESSION['materia'] = "sociologia";
 
-    $divisao = "SELECT * from soc_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from soc_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -85,7 +85,7 @@ else if($url == "fil"){
     $_SESSION['pagina'] = "humanas";
     $_SESSION['materia'] = "filosofia";
 
-    $divisao = "SELECT * from fil_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from fil_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -95,7 +95,7 @@ else if($url == "his"){
     $_SESSION['pagina'] = "humanas";
     $_SESSION['materia'] = "historia";
 
-    $divisao = "SELECT * from his_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from his_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -104,7 +104,7 @@ else if($url == "his"){
     $_SESSION['pagina'] = "humanas";
     $_SESSION['materia'] = "geografia";
 
-    $divisao = "SELECT * from geo_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from geo_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -113,7 +113,7 @@ else if($url == "his"){
     $_SESSION['pagina'] = "natureza";
     $_SESSION['materia'] = "biologia";
 
-    $divisao = "SELECT * from bio_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from bio_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -122,7 +122,7 @@ else if($url == "his"){
     $_SESSION['pagina'] = "natureza";
     $_SESSION['materia'] = "quimica";
 
-    $divisao = "SELECT * from qui_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from qui_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);
@@ -131,7 +131,7 @@ else if($url == "his"){
     $_SESSION['pagina'] = "natureza";
     $_SESSION['materia'] = "fisica";
 
-    $divisao = "SELECT * from fis_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+    $divisao = "SELECT * from fis_divisao where  Id_usu = ".$_SESSION['Id']."";
     $conn = mysqli_query($conexao, $divisao); 
     $dados = mysqli_fetch_assoc($conn);
     $total = mysqli_num_rows($conn);

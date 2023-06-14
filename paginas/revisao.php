@@ -11,11 +11,15 @@ if(isset($_SESSION['logado']) == false){
     ";
 }
 
-$sql = "SELECT * from revisao WHERE Id_usu = ".$_SESSION['Id']."";
-$query = mysqli_query($conexao, $sql);
-$row = mysqli_num_rows($query);
+$hoje = date('Y-m-d');
+$ontem = date("Y-m-d",strtotime(date("Y-m-d")."-1 day"));
 
+$sql_ontem = "SELECT * from revisao WHERE Id_usu = ".$_SESSION['Id']." and Data = '$ontem'";
+$query_ontem = mysqli_query($conexao, $sql_ontem);
+$row_ontem = mysqli_num_rows($query_ontem);
 
+$falta = 7 - date("w", strtotime($hoje));
+$domingo = date("d/m/Y",strtotime(date("Y-m-d")."+".$falta." day"));
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +45,66 @@ $row = mysqli_num_rows($query);
         <div class="volte">
             <a href="../index.php"><img src="../imgs/voltar.png" class="media-object  img-responsive img-thumbnail" width="30px"></a>
         </div>
-        <h1>Futuras Revisões</h1>
-        <div class="botoes">
-            <button onclick="dica()">Como Registrar Horário</button>
-        </div>
+        <h1>Futuras Revisões</h1>   
         <br>
-        
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">O que é</th>
+                        <th scope="col">O que revisar</th>
+                        <th scope="col">Quando</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Revisão Relâmpago</td>
+                        <td>Um dia após estudar o conteúdo (Grave um áudio revisando ele, sem olhar para as anotações, como se estivesse dando aula para si mesmo)</td>
+                        <td style="font-weight: bolder;"><?php 
+                            if($row_ontem == 0){
+                                echo "Sem Revisão Hoje";
+                            }else{
+                                while($valor = mysqli_fetch_assoc($query_ontem)){
+                                    echo $valor['Conteudo']."<br>";
+                                }
+                            }
+                        ?></td>
+                        <td>Hoje</td>
+                    </tr>
+                    <tr>
+                        <td>Revisão Semanal</td>
+                        <td width="30%">Revisar os conteúdos da semana, resolvendo questões e revisando aquilo que errar</td>
+                        <td style="font-weight: bolder;">
+                        <?php
+                            $n = 0;
+                            for($i = 1; $i < 8; $i++){
+                                $dia = date("Y-m-d",strtotime(date("Y-m-d")."-".$i." day"));
+                                $sql_semana = "SELECT * from revisao WHERE Id_usu = ".$_SESSION['Id']." and Data = '$dia'";
+                                $query_semana = mysqli_query($conexao, $sql_semana);
+                                $row_semana = mysqli_num_rows($query_semana);
+
+                                if($row_semana != 0){
+                                    $n++;
+                                        while($valor = mysqli_fetch_assoc($query_semana)){
+                                            echo $valor['Conteudo']."<br>";
+                                        }
+                                }
+                            }
+                            if($n == 0){
+                                echo "<td style='font-weight: bolder;'>Sem Revisões Na Semana</td>";
+                            }
+                        ?>
+                        </td>
+                        <td><?php echo $domingo;?><br>(Domingo)</td>
+                    </tr>
+                    <tr>
+                        <td>Revisão Mensal</td>
+                        <td>Revisar aqueles conteúdos que está mais em dúvida ou que se lembra pouco</td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
     </article>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="../js/horario.js"></script>

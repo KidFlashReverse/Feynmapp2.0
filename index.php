@@ -40,6 +40,13 @@ if($row > 0){
     
     $hor_hoje = explode(";", $hor[$dia_semana]);
     $mat_hoje = explode(";", $mat[$dia_semana]);
+
+    $hoje = date('Y-m-d');
+    $ontem = date("Y-m-d",strtotime(date("Y-m-d")."-1 day"));
+
+    $sql_ontem = "SELECT * from revisao WHERE Id_usu = ".$_SESSION['Id']." and Data = '$ontem'";
+    $query_ontem = mysqli_query($conexao, $sql_ontem);
+    $row_ontem = mysqli_num_rows($query_ontem);
 }
 ?>
 <!DOCTYPE html>
@@ -58,70 +65,74 @@ if($row > 0){
             <div class="titul">
                 <h1>Feynmapp</h1>
             </div>
-                <ul> 
-                    <li class="nada">
-                    <ul class="barra">
-                    </ul>   
                     <?php
                         if($logado == 0){
                         }else{
-                    ?>             
-                        <nav>
-                            <ul class="menu">
-                                <?php
-                                    if($logado == 0){
-                                    }else{
-                                        echo "
-                                            <li><a href='paginas/conta.php'>CONTA</a></li>
-                                        ";
-                                    }
-                                ?>
-                                <li><a href="paginas/horario.php">HORÁRIO</a></li>
-                                <li><a href="paginas/revisao.php">REVISÃO</a></li>
-                                <li><a href="#">MINHAS ANOTAÇÕES</a>   
-                                    <ul class="dentro" id="dentro">
-                                        <li><a href="#">LINGUAGEM</a>
-                                            <ul class="dentro2">
-                                                <li><a href="conteudos/linguagem/portugues.php">PORTUGUÊS</a></li>
-                                                <li><a href="conteudos/linguagem/redacao.php">REDAÇÃO</a></li>
-                                                <li><a href="conteudos/linguagem/artes.php">ARTES</a></li>
-                                                <li><a href="conteudos/linguagem/edfisica.php">ED.FISICA</a></li>
-                                                <li><a href="#">LINGUA ESTRANGEIRA</a>
-                                                    <ul class="dentro3">
-                                                        <li><a href="conteudos/linguagem/espanhol.php">ESPANHOL</a></li>
-                                                        <li><a href="conteudos/linguagem/ingles.php">INGLES</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">HUMANAS</a>
-                                            <ul class="dentro2">
-                                                <li><a href="conteudos/humanas/historia.php">HISTORIA</a></li>
-                                                <li><a href="conteudos/humanas/geografia.php">GEOGRAFIA</a></li>
-                                                <li><a href="conteudos/humanas/filosofia.php">FILOSOFIA</a></li>
-                                                <li><a href="conteudos/humanas/sociologia.php">SOCIOLOGIA</a></li>  
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">NATUREZA</a>
-                                            <ul class="dentro2">
-                                                <li><a href="conteudos/natureza/biologia.php">BIOLOGIA</a></li>
-                                                <li><a href="conteudos/natureza/quimica.php">QUIMICA</a></li>
-                                                <li><a href="conteudos/natureza/fisica.php">FISICA</a></li>   
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">EXATAS</a>
-                                            <ul class="dentro2">
-                                                <li><a href="conteudos/exatas/matematica.php">MATEMATICA</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
+                    ?>           
+                        <div class="centralizar">
+                            <nav>
+                                <ul class="menu">
+                                    <?php 
+                                        if($_SESSION['adm'] == 1){
+                                    ?>
+                                        <li><a href="paginas/adm.php">FUNÇÕES DE ADM</a></li>
+                                    <?php
+                                        }
+                                    ?>
+                                    <?php
+                                        if($logado == 0){
+                                        }else{
+                                            echo "
+                                                <li><a href='paginas/conta.php'>CONTA</a></li>
+                                            ";
+                                        }
+                                    ?>
+                                    <li><a href="paginas/horario.php">HORÁRIO</a></li>
+                                    <li><a href="paginas/revisao.php">REVISÃO</a></li>
+                                    <li><a href="#">MINHAS ANOTAÇÕES</a>   
+                                        <ul class="dentro" id="dentro">
+                                            <li><a href="#">LINGUAGEM</a>
+                                                <ul class="dentro2">
+                                                    <li><a href="conteudos/linguagem/portugues.php">PORTUGUÊS</a></li>
+                                                    <li><a href="conteudos/linguagem/redacao.php">REDAÇÃO</a></li>
+                                                    <li><a href="conteudos/linguagem/artes.php">ARTES</a></li>
+                                                    <li><a href="conteudos/linguagem/edfisica.php">ED.FISICA</a></li>
+                                                    <li><a href="#">LINGUA ESTRANGEIRA</a>
+                                                        <ul class="dentro3">
+                                                            <li><a href="conteudos/linguagem/espanhol.php">ESPANHOL</a></li>
+                                                            <li><a href="conteudos/linguagem/ingles.php">INGLES</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">HUMANAS</a>
+                                                <ul class="dentro2">
+                                                    <li><a href="conteudos/humanas/historia.php">HISTORIA</a></li>
+                                                    <li><a href="conteudos/humanas/geografia.php">GEOGRAFIA</a></li>
+                                                    <li><a href="conteudos/humanas/filosofia.php">FILOSOFIA</a></li>
+                                                    <li><a href="conteudos/humanas/sociologia.php">SOCIOLOGIA</a></li>  
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">NATUREZA</a>
+                                                <ul class="dentro2">
+                                                    <li><a href="conteudos/natureza/biologia.php">BIOLOGIA</a></li>
+                                                    <li><a href="conteudos/natureza/quimica.php">QUIMICA</a></li>
+                                                    <li><a href="conteudos/natureza/fisica.php">FISICA</a></li>   
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">EXATAS</a>
+                                                <ul class="dentro2">
+                                                    <li><a href="conteudos/exatas/matematica.php">MATEMATICA</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>  
                     <?php
                         }
                     ?>
-                </ul>
                 <div class="login">
                     <?php
                         if($logado == 0){
@@ -175,6 +186,18 @@ if($row > 0){
                                 <?php
                                     }
                                 ?>
+                                    <tr>
+                                        <td style="font-weight: bolder;">Revisão</td>
+                                        <td><?php 
+                                            if($row_ontem == 0){
+                                                echo "Sem Revisões Hoje";
+                                            }else{
+                                                while($valor = mysqli_fetch_assoc($query_ontem)){
+                                                    echo $valor['Conteudo']."<br>";
+                                                }
+                                            }
+                                        ?></td>
+                                    </tr>
                             </table>
                         </div>
                         <?php
@@ -184,8 +207,45 @@ if($row > 0){
                 <?php
                     }
                 ?>
-                
+                <?php
+                    $sql_aleatorio = "SELECT * from videos";
+                    $query_aleatorio = mysqli_query($conexao, $sql_aleatorio);
+                    $row_vd = mysqli_num_rows($query_aleatorio);
 
+                    $numb = rand(1, $row_vd);
+
+                    $sql_vd1 = "SELECT * from videos where Id = $numb";
+                    $query_vd1 = mysqli_query($conexao, $sql_vd1);
+                    $list_vd1 = mysqli_fetch_assoc($query_vd1);
+
+                    $numb2 = rand(1, $row_vd);
+                    for($i= 1; $i > 0; $i++){
+                        if($numb2 == $numb){
+                            $numb2 = rand(1, $row_vd);
+                        }else{
+                            break;
+                        }
+                    }
+
+                    $sql_vd2 = "SELECT * from videos where Id = $numb2";
+                    $query_vd2 = mysqli_query($conexao, $sql_vd2);
+                    $list_vd2 = mysqli_fetch_assoc($query_vd2);
+
+                    $numb3 = rand(1, $row_vd);
+                    for($i= 1; $i > 0; $i++){
+                        if($numb3 == $numb2){
+                            $numb3 = rand(1, $row_vd);
+                        }else{
+                            break;
+                        }
+                    }
+
+                    $sql_vd3 = "SELECT * from videos where Id = $numb3";
+                    $query_vd3 = mysqli_query($conexao, $sql_vd3);
+                    $list_vd3 = mysqli_fetch_assoc($query_vd3);
+                ?>
+                    
+                </video>
                 <div class="videos" <?php if($row == 0){ echo 'style="margin-top: 20vh;"';}?>>
                     <h1>Videos Recomendados</h1>
                     <hr>
@@ -197,19 +257,13 @@ if($row > 0){
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <video width="70%" height="50%" controls>
-                                    <source src="" type="video/mp4">
-                                </video>
+                                    <iframe src="<?php echo $list_vd1['Link'];?>"></iframe>
                             </div>
                             <div class="carousel-item">
-                                <video width="70%" height="50%" controls>
-                                    <source src="" type="video/mp4">
-                                </video>
+                                <iframe src="<?php echo $list_vd2['Link'];?>"></iframe>
                             </div>
                             <div class="carousel-item">
-                                <video width="70%" height="50%" controls>
-                                    <source src="" type="video/mp4">
-                                </video>
+                                    <iframe src="<?php echo $list_vd3['Link'];?>"></iframe>
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

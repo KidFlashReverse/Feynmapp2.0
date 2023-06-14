@@ -9,7 +9,7 @@ $query = mysqli_query($conexao, $sql);
 echo "
     <script>
         alert('Conta Excluida');
-        window.location = ...;
+        window.location = ../../index.php;
     </script>
 ";
 ?>

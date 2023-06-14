@@ -23,6 +23,7 @@ if (mysqli_num_rows($email_sql) > 0){
             $_SESSION['nome'] = $row['Nome'];
             $_SESSION['senha'] = $row['Senha'];
             $_SESSION['telefone'] = $row['Telefone'];
+            $_SESSION['adm'] = $row['adm'];
         }
         
         mysqli_close($conexao);

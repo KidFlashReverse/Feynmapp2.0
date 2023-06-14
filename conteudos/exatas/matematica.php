@@ -7,7 +7,7 @@ if(!isset($_SESSION['Id'])){
     $_SESSION['Id'] = 0; 
 }
 
-$divisao = "SELECT * from mt_divisao where Id_usu = 0 or Id_usu = ".$_SESSION['Id']."";
+$divisao = "SELECT * from mt_divisao where Id_usu = ".$_SESSION['Id']."";
 $conn = mysqli_query($conexao, $divisao); 
 $dados = mysqli_fetch_assoc($conn);
 $total = mysqli_num_rows($conn);
