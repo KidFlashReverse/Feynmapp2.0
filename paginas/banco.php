@@ -176,17 +176,12 @@ if($url == "pt"){
                             <tbody>
                                 <?php
                                     while($valor = mysqli_fetch_assoc($query)){
-                                        $sql_usuario = "SELECT * FROM login WHERE Id = ".$valor['Id_usuario']."";
-                                        $query_usuario = mysqli_query($conexao, $sql_usuario);
-                                        $list = mysqli_fetch_assoc($query_usuario);
                                 ?>
                                     <tr class="linha">
                                         <td><?php echo $valor['Id']?></td>
-                                        <td><?php echo $list['Nome']?></td>
-                                        <td><?php echo $valor['Titulo']?></td>
-                                        <td><a href="<? echo $valor['Anot_foto'];?>"></a></td>
-                                        <td><?php echo $valor['Anot_texto']?></td>
                                         <td><?php echo $valor['Link']?></td>
+                                        <td><?php echo $valor['Titulo']?></td>
+                                        <td><?php echo $valor['Materia']?></td>
                                         <td><button><a class="btn_func" href="conexoes/db_apagarbanco.php?<?php echo $url;?>">Apagar</a></button></td>
                                     </tr>
                                 <?php
