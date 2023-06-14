@@ -235,6 +235,8 @@ if($row > 0){
                     for($i= 1; $i > 0; $i++){
                         if($numb3 == $numb2){
                             $numb3 = rand(1, $row_vd);
+                        }else if($numb3 == $numb){
+                            $numb3 = rand(1, $row_vd);
                         }else{
                             break;
                         }

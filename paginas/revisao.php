@@ -92,7 +92,7 @@ $domingo = date("d/m/Y",strtotime(date("Y-m-d")."+".$falta." day"));
                                 }
                             }
                             if($n == 0){
-                                echo "<td style='font-weight: bolder;'>Sem Revisões Na Semana</td>";
+                                echo "Sem Revisões Na Semana";
                             }
                         ?>
                         </td>

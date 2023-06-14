@@ -9,9 +9,15 @@ $tipo = $_POST['tipo'];
 
 $sql = "INSERT INTO ".$url." values ('', '$tipo', '$conteudo', ".$_SESSION['Id'].")";
 
-mysqli_query($conexao, $sql);
-mysqli_close($conexao);
+$query = mysqli_query($conexao, $sql);
 
-echo "Adicionado";
-echo "<a href='../../conteudos/".$_SESSION['pagina']."/".$_SESSION['materia'].".php'>Voltar</a>";
+$pagina = $_SESSION['pagina'];
+$materia = $_SESSION['materia'];
+
+echo "
+    <script>
+        alert ('Conteudo Adicionado');
+        window.location = '../../conteudos/$pagina/$materia.php';
+    </script>
+";
 ?>
